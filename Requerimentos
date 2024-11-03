@@ -1113,7 +1113,7 @@ body {
             <input type="checkbox" id="termos" required />
             <label for="termos"
               >Li e concordo com as normas de saída, sendo que caso o meu tempo
-              na companhia seja superior a 14 dias e inferior a 30 dias,
+              na subcompanhia seja superior a 14 dias e inferior a 30 dias,
               receberei 50 medalhas efetivas negativas por saída precoce.</label
             >
           </div>
