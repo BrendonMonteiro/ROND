@@ -413,13 +413,19 @@
         font-weight: 800;
         margin-top: -100%;
       }
+      
+      .btn .dropdown {
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+}
 
-      .btn:focus .dropdown,
-      .btn:active .dropdown {
-        transform: translate(0, 20px);
-        opacity: 1;
-        visibility: visible;
-      }
+.btn .dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, 20px);
+}
+
 
       .btn .material-icons {
         border-radius: 100%;
@@ -1264,6 +1270,19 @@ body {
     <script src="https://code.jquery.com/jquery-3.4.1.js"
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
+    <script>document.querySelector(".btn").addEventListener("click", function (event) {
+        const dropdown = this.querySelector(".dropdown");
+        dropdown.classList.toggle("show");
+        event.stopPropagation();
+    });
+    
+    document.addEventListener("click", function () {
+        const dropdown = document.querySelector(".btn .dropdown");
+        if (dropdown.classList.contains("show")) {
+            dropdown.classList.remove("show");
+        }
+    });
+    </script>
     <script>
         document.querySelectorAll("form").forEach(form => {
             form.addEventListener("submit", function(event) {
