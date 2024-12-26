@@ -1,0 +1,867 @@
+<meta charset="UTF-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>[ROND] Mensagem de Orientação</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" />
+<link href="https://i.imgur.com/A9OwFPd.gif" rel="icon" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+<style>
+html {
+        height: 100%;
+        background: linear-gradient(90deg, #85400f, #e8711c);
+        background-size: 200% 200%;
+        background-attachment: fixed;
+        animation: gradientAnimation 15s ease infinite;
+      }
+
+      @keyframes gradientAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+
+        50% {
+          background-position: 100% 50%;
+        }
+
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: "Poppins", sans-serif;
+    overflow-y: auto;
+    background: transparent;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  ::selection {
+        background-color: #542a0c;
+        color: #eca26d;
+      }
+
+  .logo {
+    width: 100%;
+    max-width: 330px;
+    height: auto;
+    margin: 50px;
+    position: relative;
+    z-index: 0;
+    margin-top: -60px;
+  }
+
+  .logo-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    margin-top: -70px;
+    z-index: 1;
+    width: 100%;
+  }
+
+  .button {
+    flex: 1;
+    margin: 0 5px;
+    /* Espaçamento entre botões */
+    padding: 5px 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.2), white 50%, rgba(255, 255, 255, 0.2));
+    /* Gradiente com baixa opacidade nas extremidades */
+    animation: lineargradientAnimation 1s ease infinite;
+    color: #c76119;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.5s, filter 0.5s, background 0.5s;
+    /* Adiciona transição ao filtro e ao fundo */
+    border-radius: 1.15rem;
+    height: 90px;
+    width: 60px;
+    z-index: 2;
+    position: relative;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: grayscale(100%);
+    /* Aplica escala de cinza por padrão */
+  }
+
+  .button .icon {
+    margin-right: 8px;
+    height: 1.15rem;
+    width: auto;
+  }
+
+  .button:hover {
+    background-color: #f5dff8;
+    transform: scale(1.01);
+    filter: grayscale(0%);
+    /* Remove a escala de cinza */
+  }
+
+  .button:focus,
+  /* Quando o botão estiver focado */
+  .button:active,
+  /* Quando o botão estiver ativo */
+  .button.selected {
+    /* Classe personalizada para indicar seleção */
+    filter: grayscale(0%);
+    /* Remove a escala de cinza */
+    background: white;
+    /* Remove o gradiente e aplica fundo sólido */
+  }
+
+  .form-container {
+    display: none;
+    margin-top: -60px;
+    padding: 15px;
+    width: 100%;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.5s ease;
+  }
+
+  .form-container.active {
+    display: block;
+    padding-bottom: 0.2em;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-container input,
+  .form-container select,
+  .form-container textarea {
+    height: 80px;
+    background-color: #e7e7e7;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    color: #282828;
+    transition: border-color 0.3s ease;
+  }
+
+  .form-container input:focus,
+  .form-container select:focus,
+  .form-container textarea:focus {
+    border-color: #c76119;
+  }
+
+  .form-container input::placeholder,
+  .form-container textarea::placeholder {
+    color: #282828;
+  }
+
+  .form-container select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 30px;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px 16px;
+  }
+
+  .form-container .checkbox {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    font-size: 14px;
+    color: #545353;
+  }
+
+  .form-container .checkbox input {
+    width: auto;
+    margin-right: 10px;
+  }
+
+  .form-container button {
+    height: 68px;
+    background-color: #c76119;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    width: 100%;
+    /* Define a largura para ocupar 100% do espaço disponível */
+  }
+
+  .form-container button:hover {
+    background-color: #b65a19;
+  }
+
+  .form-container .row {
+    display: flex;
+    gap: 10px;
+  }
+
+  .form-container .row input,
+  .form-container .row select,
+  .form-container .row textarea {
+    width: calc(50% - 5px);
+  }
+
+  body.scrollable .container {
+    height: auto;
+    transform: translateY(10vh);
+  }
+
+  input.invalid,
+  select.invalid,
+  textarea.invalid {
+    border: 2px solid #d9534f;
+    background-color: #f2dede;
+  }
+
+  input.invalid:focus,
+  select.invalid:focus,
+  textarea.invalid:focus {
+    border-color: #a94442;
+    outline: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #a85316;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #864211;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #864211;
+  }
+
+  body {
+    scrollbar-width: thin;
+    scrollbar-color: #864211 #a85316;
+  }
+
+  .credits {
+    text-align: center;
+    margin-top: 20px;
+    /* Ajuste a margem superior conforme necessário */
+    padding: 10px;
+    border-top: 1px solid #9c4f17;
+    font-size: 12px;
+    color: #ffffffc8;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease;
+    width: 100%;
+    /* Adicionado para garantir que a largura seja 100% */
+  }
+
+  .credits p strong {
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .credits i {
+    margin-right: 8px;
+  }
+
+  .credits .line-break {
+    display: block;
+    margin-top: -10px;
+  }
+
+  .credits.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+
+  /* Media Queries */
+  @media only screen and (max-width: 900px) {
+    body {
+      margin: 0.5rem;
+      margin-left: 0.5rem;
+      padding: 0;
+      display: flex;
+      width: 75%;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: "Poppins", sans-serif;
+      overflow-y: auto;
+      background: transparent;
+    }
+
+    .buttons {
+      height: auto;
+      position: relative;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .button {
+      width: calc(80% - 5px);
+      /* Ajuste o tamanho dos botões para 20% da largura */
+      font-size: 60%;
+      margin: 2px;
+      padding: 2%;
+      flex: 1 1 15%;
+      /* Altera para ocupar toda a largura em telas menores */
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .button .icon {
+      margin-right: 10px;
+      height: 1.15rem;
+      width: auto;
+    }
+
+    .form-container {
+      margin-left: 0.5rem;
+    }
+  }
+  .sem-sublinhado {
+          text-decoration: none; /* Remove o sublinhado */
+        }
+        .btn {
+        font-family: "Poppins", sans-serif;
+        outline: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        min-width: 160px;
+        border: 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+        padding: 16px 20px;
+        color: #c76119;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        position: relative;
+        width: 100%;
+        cursor: pointer;
+        background-color: white;
+        border-radius: 1.15rem;
+        height: 90px;
+        font-size: 14px;
+        text-align: center;
+        font-weight: 800;
+        margin-top: -100%;
+      }
+
+      .btn .dropdown {
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+}
+
+  .btn .dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, 20px);
+  }
+
+      .btn .material-icons {
+        border-radius: 100%;
+        -webkit-animation: ripple 0.6s linear infinite;
+        animation: ripple 0.6s linear infinite;
+      }
+      .btn .dropdown {
+        position: absolute;
+        top: 85%;
+        left: 0;
+        background: #ffffff;
+        width: 60%;
+        margin-left: 20px;
+        border-radius: 4px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        text-align: left;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s ease;
+        z-index: 30;
+        margin-bottom: 1rem;
+      }
+      .btn .dropdown:before {
+        content: "";
+        position: absolute;
+        top: -6px;
+        left: 20px;
+        width: 0;
+        height: 0;
+        box-shadow: 2px -2px 6px rgba(0, 0, 0, 0.05);
+        border-top: 6px solid #ffffff;
+        border-right: 6px solid #ffffff;
+        border-bottom: 6px solid transparent;
+        border-left: 6px solid transparent;
+        transform: rotate(-45deg);
+        mix-blend-mode: multiple;
+      }
+      .btn .dropdown li {
+        z-index: 1;
+        position: relative;
+        background: #ffffff;
+        padding: 0 20px;
+        color: #666;
+        width: 100%;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        filter: grayscale(100%); /* Aplica escala de cinza por padrão */
+        transition: all 0.3s;
+      }
+      .btn .dropdown li:hover {
+        filter: grayscale(0%); /* Remove a escala de cinza */
+      }
+      .btn .dropdown li.active {
+        color: #be5e19 !important;
+        filter: grayscale(0%); /* Remove a escala de cinza */
+      }
+      .btn .dropdown li:first-child {
+        border-radius: 4px 4px 0 0;
+      }
+      .btn .dropdown li:last-child {
+        border-radius: 0 0 4px 4px;
+      }
+      .btn .dropdown li:last-child a {
+        border-bottom: 0;
+      }
+      .btn .dropdown a {
+        display: block;
+        padding: 16px 0;
+        color: inherit;
+        font-size: 10px;
+        text-decoration: none;
+      }
+      .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #be5e19;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; /* Mantém o loader acima de todo o conteúdo */
+        }
+
+        .load {
+            width: 100px;
+            height: 100px;
+            position: relative;
+        }
+
+        .load img {
+            position: absolute;
+            border-radius: 50%;
+            animation: spin 2s ease infinite;
+        }
+
+        .load img:nth-child(1) {
+            animation-delay: -1.5s;
+        }
+
+        .load img:nth-child(2) {
+            animation-delay: -1s;
+        }
+
+        .load img:nth-child(3) {
+            animation-delay: -0.5s;
+        }
+
+        .load img:nth-child(4) {
+            animation-delay: 0s;
+        }
+
+        @keyframes spin {
+            0%, 100% {
+                transform: translate(0);
+            }
+            25% {
+                transform: translate(160%);
+            }
+            50% {
+                transform: translate(160%, 160%);
+            }
+            75% {
+                transform: translate(0, 160%);
+            }
+        }
+
+        .fade-out {
+            animation: fadeOut 2s ease forwards;
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .icon {
+            width: 25px;
+            height: auto;
+        }
+</style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+  <div class="loader-container" id="loader">
+      <div class="load">
+          <img src="https://i.imgur.com/A9OwFPd.gif" alt="Logo 1" />
+          <img src="https://i.imgur.com/A9OwFPd.gif" alt="Logo 2" />
+          <img src="https://i.imgur.com/A9OwFPd.gif" alt="Logo 3" />
+          <img src="https://i.imgur.com/A9OwFPd.gif" alt="Logo 4" />
+      </div>
+  </div>
+<div class="container">
+  <div class="logo-container">
+    <img class="logo" alt="Logo" src="https://i.imgur.com/HSmIGVC.png" />
+  </div>
+
+  <div class="form-container" id="form1">
+    <form action="#" id="enviar_rl">
+        <input required="" placeholder="Nickname do(s) Rondeiro(s) a serem notificados. Separe com ''/''." type="text" id="nick_membros_rl" />
+      <div id="enviar_rl_btn" class="submit">
+        <button type="button" onclick="fill_mp('rl')">Enviar</button>
+      </div>
+      <div id="enviar_rl_dis" style="display: none;" class="submit">
+        <button disabled="" type="button">Enviando...</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="credits">
+    <p>
+      <i class="fas fa-code"></i> Desenvolvimento por <strong>.Brendon</strong> e <strong>mitojmcam</strong>.
+    </p>
+    <p class="line-break">
+      <i class="far fa-registered"></i> Todos os direitos reservados aos
+      <strong> Organizadores de Rondas.</strong>
+    </p>
+  </div>
+</div>
+</div>
+<textarea id="fa-generated-message" style="display: none;"></textarea>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://forumeiros.github.io/assets/src/form-generator/form-replace.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script>
+  function removeLoader() {
+      var loader = document.getElementById('loader');
+      loader.classList.add('fade-out');
+      loader.addEventListener('animationend', function () {
+          loader.style.display = 'none';
+          document.body.style.overflow = 'auto'; // Restaura o scroll
+      });
+  }
+  
+  // Espera 5 segundos e depois chama a função para remover o loader
+  window.onload = function () {
+      setTimeout(removeLoader, 600); // Agora o tempo é de 5 segundos
+  };
+      </script>
+<script>
+  let activeForm = null;
+  let currentIndex = 0;
+  const buttons = document.querySelectorAll(".button");
+  const totalButtons = buttons.length;
+
+  const formTitles = {
+    form1: "CARTA DE INTIMAÇÃO",
+  };
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const credits = document.querySelector(".credits");
+    setTimeout(() => {
+      credits.classList.add("show");
+    }, 500); // Pequeno atraso para permitir a transição
+  });
+
+  function toggleForm(formId) {
+    const newForm = document.getElementById(formId);
+    const body = document.body;
+
+    if (activeForm && activeForm !== newForm) {
+      activeForm.style.display = "none";
+      activeForm.classList.remove("active");
+    }
+
+    newForm.style.display = "flex";
+    setTimeout(() => {
+      newForm.classList.add("active");
+      newForm.style.display = "block";
+    }, 10); // Pequeno atraso para permitir a transição
+    activeForm = newForm;
+    body.classList.add("scrollable");
+  }
+
+  toggleForm("form1");
+
+  $(document).ready(function () {
+    const urlParams = new URLSearchParams(window.location.search).forEach(function (x, y) {
+      if (y == 'auto_sent' && x.split('')[0] == "sim") { fill_mp(x.split('')[1]) }
+      else if (y == 'select_options') { document.getElementById(x).style.display = 'block'; document.getElementById(y).value = x }
+      else if (y != 'auto_sent') { document.getElementById(y).value = x }
+    });
+    $('#select_options').on('change', function () {
+      $(".card").hide();
+      $("#" + $(this).val()).show();
+    }).change();
+  })
+
+  function fill_mp(type) {
+    var isValid = true;
+    $("#enviar_" + type).find("input").each(function () {
+      if ($(this).val() == "") { isValid = false };
+    });
+
+    if (isValid == true) {
+      $("#enviar_" + type + "_btn").css('display', 'none');
+      $("#enviar_" + type + "_dis").css('display', 'block');
+
+      var lista = $("#nick_membros_" + type).val().replaceAll(' ', '').replaceAll('/', ' / ').split(' / ');
+      var user = [];
+      lista.forEach(function (n) {
+        user.push(n);
+      });
+
+      var title = get_title(type);
+      var message = create_message(type, $("#data_rl").val());
+
+      console.log($("#data_rl").val())
+
+      send_MP(title, user, message);
+    } else {
+      alert('Preencha todos os campos!');
+      return false;
+    }
+  }
+
+  function get_title(tipo) {
+    var title = "";
+    switch (tipo) {
+      case 'rl':
+        title = "[TUT] Carta de Orientação";
+        break;
+      default:
+        title = "[TUT] Carta de Orientação";
+    }
+    return title;
+  }
+
+  function create_message(tipo, data) {
+    var message = "";
+    switch (tipo) {
+      case 'rl':
+        message = '[font=poppins][table style="border-color: black; border-radius: 20px; overflow: hidden; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);" bgcolor="f67828" border="1"][tr][td][img]https://i.imgur.com/u6WVshP.gif[/img]\n\n' +
+
+'[table style="border-color: black; border-radius: 14px; overflow: hidden; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);" bgcolor="white" border="1"][tr][td][table style="border-radius: 14px; overflow: hidden; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);" bgcolor="f67828" border="1"][tr][td][color=#f8f8ff][size=18][font=Poppins][b]TUTORIA SEMANAL[/b][/font][/size][/color][/td][/tr][/table][left]\n'+
+'[center]Olá, [color=#f67828][b]rondeiro(a)[/color][/b] [b]{USERNAME}[/b]![/center]\n\n'+
+
+'Nesta semana, ficarei responsável por acompanhar seu progresso e oferecer o suporte necessário. Estou à disposição para esclarecer suas dúvidas e compartilhar dicas importantes que possam ajudá-lo a melhorar seu desempenho.\n\n'+
+
+'Por favor, aceite meu convite no Habbo. [color=#f67828][b]Gostaria de realizar, no mínimo, uma ronda com você[/b][/color]. Responda a esta mensagem privada indicando um dia e horário que sejam mais convenientes para agendarmos essa atividade juntos.[/left]\n\n'+
+
+'[table style="border-radius: 14px; overflow: hidden; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);" bgcolor="f67828" border="1"][tr][td][color=#f8f8ff][size=18][font=Poppins][b]MODALIDADES E META[/b][/font][/size][/color][/td][/tr][/table][left]\n'+
+'[color=#f67828][b]➤[/b][/color] Como abordado durante a graduação, o cumprimento da meta semanal envolve cinco modalidades de rondas, além do Curso Prático de Recrutamento. As modalidades são:\n\n'+
+
+'↝ Curso Prático de Recrutamento: 50% (+10% de bônus)\n'+
+'↝ Rondas de Recrutamento: 50% (+10% de bônus)\n'+
+'↝ Recrutamento Ostensivo: 50% (+10% de bônus)\n'+
+'↝ Rondas de Divulgação: 40% (+10% de bônus)\n'+
+'↝ Rondas de Fechar Quartos: 20% (+10% de bônus)\n'+
+'↝ Rondas de Denunciar Infratores: 20% (+10% de bônus)\n'+
+   
+'[color=#f67828][b]➤[/b][/color] O bônus de farda é concedido quando você utiliza o fardamento ou acessório oficial dos Organizadores de Rondas durante suas rondas, como o brevê laranja, por exemplo.\n\n'+
+   
+'[color=#f67828][b]➤[/b][/color] O bônus de rondas realizadas em grupo ou acompanhadas por um tutor será concedido para aquelas em que participem, no mínimo, uma pessoa além do ministrante, ou seja, rondas feitas em dupla ou com mais participantes envolvidos.\n\n'+
+
+'A meta semanal é de 100%, e você deve alcançá-la [color=#f67828][b]até sábado às 23h59[/b][/color] (horário de Brasília). Lembre-se que a nova meta inicia-se [color=#f67828][b]aos domingos à 00h00[/b][/color] (horário de Brasília).[/left]\n\n'+
+
+'[table style="border-radius: 14px; overflow: hidden; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);" bgcolor="f67828" border="1"][tr][td][color=#f8f8ff][size=18][font=Poppins][b]GUIA DO SUBFÓRUM & PRINTS[/b][/font][/size][/color][/td][/tr][/table][left]\n'+
+'[color=#f67828][b]➤[/b][/color] Existe um tópico específico com as regras para garantir que sua ronda não seja cancelada. Clique aqui para acessá-lo e leia todas as regras com atenção. Essas orientações também estão disponíveis em sua apostila de graduação, podendo ser consultadas sempre que necessário.\n\n'+
+
+'[color=#f67828][b]➤[/b][/color] Recomendo utilizar o Imgur para hospedar suas prints (clique aqui para acessar), pois é uma opção prática e eficiente para armazenar imagens. Para capturar imagens com boa qualidade, pressione a tecla "Print Screen" do seu teclado. Após capturar as imagens, consolide-as em um único link para facilitar a postagem de sua ronda. Caso tenha dúvidas ou precise de auxílio, estou à disposição para ajudar!\n\n'+
+
+'Toda a organização de tópicos e conteúdos da nossa subcompanhia está centralizada no subfórum correspondente. Você pode acessá-lo através da seção "subcompanhias" no fórum da RCC. Para facilitar sua navegação, destacamos abaixo os links mais importantes:\n\n'+
+
+'[spoiler=TÓPICOS IMPORTANTES][b][color=#ff7300][/color][/b] [url=https://www.policiarcc.com/f210-rond-diario-oficial][b][i][color=#ff7300]➤ [ROND] Listagem de Membros:[/color][/i][/b][/url] consulte este tópico para localizar qualquer membro da subcompanhia com base no seu cargo.\n'+
+
+'[b][color=#ff7300][/color][/b] [url=https://www.policiarcc.com/t35344-rond-ouvidoria][b][i][color=#ff7300]➤ [ROND] Ouvidoria:[/color][/i][/b][/url] tem sugestões para melhorias ou projetos para a subcompanhia? Este é o espaço ideal. Caso precise de ajuda na elaboração das ideias, estou à disposição para auxiliá-lo.\n\n'+
+
+'[b][color=#ff7300][/color][/b] [url=https://www.policiarcc.com/t38079-rond-relatorio-de-atividades][b][i][color=#ff7300]➤ [ROND] Relatório de Atividades:[/color][/i][/b][/url] nesse tópico você pode postar suas rondas para contabilizar na meta.\n\n'+
+
+'[b][color=#ff7300][/color][/b] [url=https://www.policiarcc.com/t38077-rond-diretrizes-de-atividades][b][i][color=#ff7300]➤ [ROND] Diretrizes de Atividades:[/color][/i][/b][/url] tem as regras de cada ronda para evitar que sua ronda seja cancelada.\n\n'+
+
+'[b][color=#ff7300][/color][/b] [url=https://www.policiarcc.com/f390-rond-documentacao][b][i][color=#ff7300]➤ [ROND] Documentação:[/color][/i][/b][/url] aqui estão todas as regras da subcompanhia, as quais devem ser seguidas para evitar penalidades desnecessárias.[/spoiler]\n\n'+
+'[table style="border-radius: 14px; overflow: hidden; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);" bgcolor="f67828" border="1"][tr][td][color=#f8f8ff][size=18][font=Poppins][b]DEPARTAMENTOS INTERNOS[/b][/font][/size][/color][/td][/tr][/table]\n\n'+
+'Nossa subcompanhia é estruturada em três departamentos internos: RIP (Repartição de Inteligência e Proteção), DRC (Departamento de Relações Comunicativas) e DA (Departamento de Aplicação). Abaixo, detalhamos as funções de cada um:\n\n'+
+
+'[color=#f67828][b]➤ RIP:[/b][/color] Responsável por garantir a integridade da subcompanhia. Qualquer irregularidade na postagem de suas rondas será notificada por mensagem privada, e a atividade será cancelada. Mantenha atenção para evitar cancelamentos que possam comprometer suas metas.\n\n'+
+
+'[color=#f67828][b]➤ DRC:[/b][/color] Cuida do envio de mensagens privadas e organiza os eventos realizados após as reuniões gerais.\n\n'+
+
+'[color=#f67828][b]➤ DA:[/b][/color] Tem como principal função manter a subcompanhia com alta adesão, aplicando o teste admissional para novos membros.\n\n'+
+
+'Caso tenha interesse em integrar algum desses departamentos, entre em contato com os líderes responsáveis e manifeste seu interesse ou acesse o tópico [color=#f67828][b][ROND] Inscrições Departamentais[/b][/color].[/left]\n\n\n'+
+
+
+'[right][i]Atenciosamente,\n'+
+'Tutor dos [b][color=#f67828]Organizadores de Rondas[/color][/b].[/i][/right][/font][/td][/tr][/table]\n'+
+'[font=Poppins][size=12][color=#f8f8ff][b]Reservam-se os direitos aos Organizadores de Rondas.[/b][/color][/size][/font][/td][/tr][/table]\n'
+        break;
+
+      default:
+        message = '[font=poppins][table style="border-color: black; border-radius: 20px; overflow: hidden; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);" bgcolor="f67828" border="1"][tr][td][img]https://i.imgur.com/u6WVshP.gif[/img]\n\n' +
+
+'[table style="border-color: black; border-radius: 14px; overflow: hidden; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);" bgcolor="white" border="1"][tr][td][table style="border-radius: 14px; overflow: hidden; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);" bgcolor="f67828" border="1"][tr][td][color=#f8f8ff][size=18][font=Poppins][b]TUTORIA SEMANAL[/b][/font][/size][/color][/td][/tr][/table][left]\n'+
+'[center]Olá, [color=#f67828][b]rondeiro(a)[/color] [b]{USERNAME}[/b]![/center]\n\n'+
+
+'Nesta semana, ficarei responsável por acompanhar seu progresso e oferecer o suporte necessário. Estou à disposição para esclarecer suas dúvidas e compartilhar dicas importantes que possam ajudá-lo a melhorar seu desempenho.\n\n'+
+
+'Por favor, aceite meu convite no Habbo. [color=#f67828][b]Gostaria de realizar, no mínimo, uma ronda com você[/b][/color]. Responda a esta mensagem privada indicando um dia e horário que sejam mais convenientes para agendarmos essa atividade juntos.[/left]\n\n'+
+
+'[table style="border-radius: 14px; overflow: hidden; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);" bgcolor="f67828" border="1"][tr][td][color=#f8f8ff][size=18][font=Poppins][b]MODALIDADES E META[/b][/font][/size][/color][/td][/tr][/table][left]\n'+
+'[color=#f67828][b]➤[/b][/color] Como abordado durante a graduação, o cumprimento da meta semanal envolve cinco modalidades de rondas, além do Curso Prático de Recrutamento. As modalidades são:\n\n'+
+
+'↝ Curso Prático de Recrutamento: 50% (+10% de bônus)\n'+
+'↝ Rondas de Recrutamento: 50% (+10% de bônus)\n'+
+'↝ Recrutamento Ostensivo: 50% (+10% de bônus)\n'+
+'↝ Rondas de Divulgação: 40% (+10% de bônus)\n'+
+'↝ Rondas de Fechar Quartos: 20% (+10% de bônus)\n'+
+'↝ Rondas de Denunciar Infratores: 20% (+10% de bônus)\n'+
+   
+'[color=#f67828][b]➤[/b][/color] O bônus de farda é concedido quando você utiliza o fardamento ou acessório oficial dos Organizadores de Rondas durante suas rondas, como o brevê laranja, por exemplo.\n\n'+
+   
+'[color=#f67828][b]➤[/b][/color] O bônus de rondas realizadas em grupo ou acompanhadas por um tutor será concedido para aquelas em que participem, no mínimo, uma pessoa além do ministrante, ou seja, rondas feitas em dupla ou com mais participantes envolvidos.\n\n'+
+
+'A meta semanal é de 100%, e você deve alcançá-la [color=#f67828][b]até sábado às 23h59[/b][/color] (horário de Brasília). Lembre-se que a nova meta inicia-se [color=#f67828][b]aos domingos à 00h00[/b][/color] (horário de Brasília).[/left]\n\n'+
+
+'[table style="border-radius: 14px; overflow: hidden; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);" bgcolor="f67828" border="1"][tr][td][color=#f8f8ff][size=18][font=Poppins][b]GUIA DO SUBFÓRUM & PRINTS[/b][/font][/size][/color][/td][/tr][/table][left]\n'+
+'[color=#f67828][b]➤[/b][/color] Existe um tópico específico com as regras para garantir que sua ronda não seja cancelada. Clique aqui para acessá-lo e leia todas as regras com atenção. Essas orientações também estão disponíveis em sua apostila de graduação, podendo ser consultadas sempre que necessário.\n\n'+
+
+'[color=#f67828][b]➤[/b][/color] Recomendo utilizar o Imgur para hospedar suas prints (clique aqui para acessar), pois é uma opção prática e eficiente para armazenar imagens. Para capturar imagens com boa qualidade, pressione a tecla "Print Screen" do seu teclado. Após capturar as imagens, consolide-as em um único link para facilitar a postagem de sua ronda. Caso tenha dúvidas ou precise de auxílio, estou à disposição para ajudar!\n\n'+
+
+'Toda a organização de tópicos e conteúdos da nossa subcompanhia está centralizada no subfórum correspondente. Você pode acessá-lo através da seção "subcompanhias" no fórum da RCC. Para facilitar sua navegação, destacamos abaixo os links mais importantes:\n\n'+
+
+'[spoiler=TÓPICOS IMPORTANTES][b][color=#ff7300][/color][/b] [url=https://www.policiarcc.com/f210-rond-diario-oficial][b][i][color=#ff7300]➤ [ROND] Listagem de Membros:[/color][/i][/b][/url] consulte este tópico para localizar qualquer membro da subcompanhia com base no seu cargo.\n'+
+
+'[b][color=#ff7300][/color][/b] [url=https://www.policiarcc.com/t35344-rond-ouvidoria][b][i][color=#ff7300]➤ [ROND] Ouvidoria:[/color][/i][/b][/url] tem sugestões para melhorias ou projetos para a subcompanhia? Este é o espaço ideal. Caso precise de ajuda na elaboração das ideias, estou à disposição para auxiliá-lo.\n\n'+
+
+'[b][color=#ff7300][/color][/b] [url=https://www.policiarcc.com/t38079-rond-relatorio-de-atividades][b][i][color=#ff7300]➤ [ROND] Relatório de Atividades:[/color][/i][/b][/url] nesse tópico você pode postar suas rondas para contabilizar na meta.\n\n'+
+
+'[b][color=#ff7300][/color][/b] [url=https://www.policiarcc.com/t38077-rond-diretrizes-de-atividades][b][i][color=#ff7300]➤ [ROND] Diretrizes de Atividades:[/color][/i][/b][/url] tem as regras de cada ronda para evitar que sua ronda seja cancelada.\n\n'+
+
+'[b][color=#ff7300][/color][/b] [url=https://www.policiarcc.com/f390-rond-documentacao][b][i][color=#ff7300]➤ [ROND] Documentação:[/color][/i][/b][/url] aqui estão todas as regras da subcompanhia, as quais devem ser seguidas para evitar penalidades desnecessárias.[/spoiler]\n\n'+
+'[table style="border-radius: 14px; overflow: hidden; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);" bgcolor="f67828" border="1"][tr][td][color=#f8f8ff][size=18][font=Poppins][b]DEPARTAMENTOS INTERNOS[/b][/font][/size][/color][/td][/tr][/table]\n\n'+
+'Nossa subcompanhia é estruturada em três departamentos internos: RIP (Repartição de Inteligência e Proteção), DRC (Departamento de Relações Comunicativas) e DA (Departamento de Aplicação). Abaixo, detalhamos as funções de cada um:\n\n'+
+
+'[color=#f67828][b]➤ RIP:[/b][/color] Responsável por garantir a integridade da subcompanhia. Qualquer irregularidade na postagem de suas rondas será notificada por mensagem privada, e a atividade será cancelada. Mantenha atenção para evitar cancelamentos que possam comprometer suas metas.\n\n'+
+
+'[color=#f67828][b]➤ DRC:[/b][/color] Cuida do envio de mensagens privadas e organiza os eventos realizados após as reuniões gerais.\n\n'+
+
+'[color=#f67828][b]➤ DA:[/b][/color] Tem como principal função manter a subcompanhia com alta adesão, aplicando o teste admissional para novos membros.\n\n'+
+
+'Caso tenha interesse em integrar algum desses departamentos, entre em contato com os líderes responsáveis e manifeste seu interesse ou acesse o tópico [color=#f67828][b][ROND] Inscrições Departamentais[/b][/color].[/left]\n\n\n'+
+
+
+'[right][i]Atenciosamente,\n'+
+'Tutor dos [b][color=#f67828]Organizadores de Rondas[/color][/b].[/i][/right][/font][/td][/tr][/table]\n'+
+'[font=Poppins][size=12][color=#f8f8ff][b]Reservam-se os direitos aos Organizadores de Rondas.[/b][/color][/size][/font][/td][/tr][/table]\n'
+    }
+    return message;
+  }
+
+  function send_MP(title, user, message) {
+    jQuery.post('/privmsg', {
+      folder: 'inbox',
+      mode: 'post',
+      post: '1',
+      'username[]': user,
+      subject: title,
+      message: message
+    }).done(function () {
+      console.log("Mensagem Privada enviada!");
+      location.href = "https://testesuporte.forumeiros.com/privmsg?folder=inbox";
+    }).fail(function () {
+      console.log("Erro");
+    })
+  }
+  function retorna_horario() {
+    var horario = new Date();
+    horario.setMinutes(horario.getMinutes() + horario.getTimezoneOffset() - 180);
+    var data_hoje = horario.getDate();
+    if (data_hoje < 10) { data_hoje = '0' + data_hoje };
+    const meses = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
+    var mes_hoje = meses[horario.getMonth()];
+    var ano_hoje = horario.getFullYear();
+    var retornar = data_hoje + ' ' + mes_hoje + ' ' + ano_hoje;
+
+    return retornar;
+  }
+  function updateButtons() {
+    // Oculta todos os botões
+    buttons.forEach((button) => {
+      button.style.display = "none";
+    });
+
+    // Exibe apenas os botões desejados
+    for (let i = 0; i < 3; i++) {
+      if (currentIndex + i < totalButtons) {
+        buttons[currentIndex + i].style.display = "block";
+      }
+    }
+  }
+
+</script>
+</body>
+
+</html>
